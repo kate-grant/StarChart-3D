@@ -2,25 +2,39 @@ const Sequelize = require("sequelize");
 const db = require("../db");
 
 const Star = db.define("star", {
-  bayerFlamseed: {
-    type: Sequelize.STRING,
-    unique: true,
-  },
   properName: {
     type: Sequelize.STRING,
     unique: true,
   },
-  distance: {
-    //format with fast-csv to lightyears floored
+  bayer: {
+    type: Sequelize.STRING,
+  },
+  flamsteed: {
     type: Sequelize.INTEGER,
   },
+  constellationAbr: {
+    type: Sequelize.STRING,
+  },
+  distance: {
+    //format with fast-csv to lightyears floored?
+    type: Sequelize.DECIMAL,
+  },
   magnitude: {
-    type: Sequelize.FLOAT,
+    type: Sequelize.DECIMAL,
   },
   colorIndex: {
     type: Sequelize.STRING,
   },
+  lumosity: {
+    type: Sequelize.DECIMAL,
+  },
+  raDec: {
+    type: Sequelize.STRING,
+  },
   coordinates: {
+    type: Sequelize.STRING,
+  },
+  positionChange: {
     type: Sequelize.STRING,
   },
   velocity: {
