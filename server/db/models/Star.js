@@ -37,6 +37,9 @@ const Star = db.define("star", {
   positionChange: {
     type: Sequelize.STRING,
   },
+  radialVelocity: {
+    type: Sequelize.STRING,
+  },
   velocity: {
     type: Sequelize.STRING,
   },
