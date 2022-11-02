@@ -28,20 +28,41 @@ const Star = db.define("star", {
   lumosity: {
     type: Sequelize.DECIMAL,
   },
-  raDec: {
-    type: Sequelize.STRING,
+  ra: {
+    type: Sequelize.DECIMAL,
   },
-  coordinates: {
-    type: Sequelize.STRING,
+  dec: {
+    type: Sequelize.DECIMAL,
   },
-  positionChange: {
-    type: Sequelize.STRING,
+  cartesianX: {
+    type: Sequelize.DECIMAL,
   },
-  radialVelocity: {
-    type: Sequelize.STRING,
+  cartesianY: {
+    type: Sequelize.DECIMAL,
   },
-  velocity: {
-    type: Sequelize.STRING,
+  cartesianZ: {
+    type: Sequelize.DECIMAL,
+  },
+  velocityX: {
+    type: Sequelize.DECIMAL,
+  },
+  velocityY: {
+    type: Sequelize.DECIMAL,
+  },
+  velocityZ: {
+    type: Sequelize.DECIMAL,
+  },
+  rarad: {
+    type: Sequelize.DECIMAL,
+  },
+  decrad: {
+    type: Sequelize.DECIMAL,
+  },
+  pmrarad: {
+    type: Sequelize.DECIMAL,
+  },
+  prdecrad: {
+    type: Sequelize.DECIMAL,
   },
 });
 
