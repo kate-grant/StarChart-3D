@@ -52,6 +52,9 @@ const Star = db.define("star", {
   velocityZ: {
     type: Sequelize.DECIMAL,
   },
+  radialVelocity: {
+    type: Sequelize.DECIMAL,
+  },
   rarad: {
     type: Sequelize.DECIMAL,
   },
