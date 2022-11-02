@@ -40,9 +40,8 @@ const seed = async () => {
           ],
         })
       )
-      .transform((data) => ({}))
       .on("error", (error) => console.error(error))
-      .on("data", (row) => console.log(row))
+      .on("data", (row) => Star.create(row))
       .on("end", (rowCount) => console.log(`Parsed ${rowCount} rows`));
     console.log(chalk.bgGreen("Seeded Successfully!"));
   } catch (error) {
