@@ -1,7 +1,7 @@
-const db = require("./db");
+import db from "./db";
 // require models here
-const Star = require("./models/Star");
-const Constellation = require("./models/Constellation");
+import Star from "./models/Star";
+import Constellation from "./models/Constellation";
 // define associations here
 Star.belongsToMany(Constellation, { through: "constellations_stars" });
 Constellation.belongsToMany(Star, { through: "constellations_stars" });

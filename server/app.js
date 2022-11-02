@@ -1,7 +1,7 @@
-const path = require("path");
-const express = require("express");
+import path from "path";
+import express from "express";
 const app = express();
-const morgan = require("morgan");
+import morgan from "morgan";
 app.use(morgan("dev"));
 
 app.use(express.static(path.join(__dirname, "../public")));

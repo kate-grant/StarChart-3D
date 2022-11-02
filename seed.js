@@ -1,9 +1,8 @@
-const { db } = require("./server/db");
-const { Star, Constellation } = require("./server/db/models");
-const chalk = require("chalk");
-const csv = require("fast-csv");
-const fs = require("fs");
-const path = require("path");
+import { db, Star, Constellation } from "./server/db";
+import chalk from "chalk";
+import csv from "fast-csv";
+import fs from "fs";
+import path from "path";
 
 const seed = async () => {
   try {

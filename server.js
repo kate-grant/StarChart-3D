@@ -1,7 +1,6 @@
 //const { db } = require("./db");
 const PORT = process.env.PORT || 3000;
-const app = require("./server/app");
-//const seed = require("../script/seed");
+import app from "./server/app";
 
 const init = async () => {
   // try {
