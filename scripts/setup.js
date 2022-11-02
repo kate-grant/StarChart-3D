@@ -1,6 +1,6 @@
-const { exec } = require("child_process");
-const fs = require("fs");
-const seed = require("../seed");
+import { exec } from "child_process";
+import fs from "fs";
+import seed from "../seed";
 
 if (!fs.existsSync("../data/hygdata_v3.csv")) {
   exec("gunzip ../data/hygdata_v3.csv.gz", (err) => {
