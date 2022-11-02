@@ -3,7 +3,6 @@ import chalk from "chalk";
 import csv from "fast-csv";
 import fs from "fs";
 import path from "path";
-import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
@@ -40,6 +39,7 @@ const seed = async () => {
             undefined,
             undefined,
           ],
+          renameHeaders: true,
         })
       )
       .on("error", (error) => console.error(error))
