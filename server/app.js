@@ -4,10 +4,12 @@ const app = express();
 import morgan from "morgan";
 app.use(morgan("dev"));
 
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
+
 app.use(express.static(path.join(__dirname, "../public")));
 
 // Routes & Middleware Here (incl. 404 middleware)
-const bodyParser = require("body-parser");
+import bodyParser from "body-parser";
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 //app.use("/auth", require("./auth"));
