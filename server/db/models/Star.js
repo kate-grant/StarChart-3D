@@ -4,7 +4,6 @@ import db from "../db.js";
 const Star = db.define("star", {
   properName: {
     type: Sequelize.STRING,
-    unique: true,
   },
   bayer: {
     type: Sequelize.STRING,
