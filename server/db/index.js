@@ -1,17 +1,10 @@
-import db from "./db";
+import db from "./db.js";
 // require models here
-import Star from "./models/Star";
-import Constellation from "./models/Constellation";
+import Star from "./models/Star.js";
+import Constellation from "./models/Constellation.js";
 // define associations here
 Star.belongsToMany(Constellation, { through: "constellations_stars" });
 Constellation.belongsToMany(Star, { through: "constellations_stars" });
 
-module.exports = {
-  // Include your models in this exports object as well!
-  db,
-  // models
-  models: {
-    Star,
-    Constellation,
-  },
-};
+export { Star, Constellation };
+export default db;

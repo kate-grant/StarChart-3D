@@ -1,5 +1,5 @@
 import Sequelize from "sequelize";
-import db from "../db";
+import db from "../db.js";
 
 const Constellation = db.define("constellation", {
   name: {
@@ -8,4 +8,4 @@ const Constellation = db.define("constellation", {
   },
 });
 
-module.exports = Constellation;
+export default Constellation;

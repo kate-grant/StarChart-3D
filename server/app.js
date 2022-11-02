@@ -24,4 +24,4 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500).send(err.message || "Internal server error.");
 });
 
-module.exports = app;
+export default app;

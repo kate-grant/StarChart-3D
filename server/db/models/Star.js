@@ -1,5 +1,5 @@
 import Sequelize from "sequelize";
-import db from "../db";
+import db from "../db.js";
 
 const Star = db.define("star", {
   properName: {
@@ -45,7 +45,7 @@ const Star = db.define("star", {
   },
 });
 
-module.exports = Star;
+export default Star;
 
 // StarID: The database primary key from a larger "master database" of stars.
 // HD: The star's ID in the Henry Draper catalog, if known.

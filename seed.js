@@ -1,4 +1,4 @@
-import { db, Star, Constellation } from "./server/db";
+import db, { Star, Constellation } from "./server/db/index.js";
 import chalk from "chalk";
 import csv from "fast-csv";
 import fs from "fs";
@@ -50,7 +50,7 @@ const seed = async () => {
   }
 };
 
-module.exports = seed;
+export default seed;
 
 // const Star = db.define("star", {
 //   properName: {
