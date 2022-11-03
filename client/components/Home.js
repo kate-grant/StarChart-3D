@@ -1,5 +1,5 @@
 import React from "react";
-import StarChart from "./StarChart";
+import StarChart from "./StarChart.js";
 
 const Home = () => {
   return (
