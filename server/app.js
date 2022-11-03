@@ -2,6 +2,7 @@ import path from "path";
 import express from "express";
 const app = express();
 import morgan from "morgan";
+import stars from "./api/stars.js";
 app.use(morgan("dev"));
 
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
@@ -13,7 +14,7 @@ import bodyParser from "body-parser";
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 //app.use("/auth", require("./auth"));
-//app.use("/api", require("./api"));
+app.use("/api/stars", stars);
 
 app.get("*", function (req, res, next) {
   res.sendFile(path.join(__dirname, "../public/index.html"));
