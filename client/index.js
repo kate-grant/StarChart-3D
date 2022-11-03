@@ -1,13 +1,13 @@
 import "../public/index.css";
-import store from "./store";
+import store from "./store.js";
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import AppRoutes from "./components/AppRoutes";
+import AppRoutes from "./components/AppRoutes.js";
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById("app"));
+root.render(
   <Provider store={store}>
     <AppRoutes />
-  </Provider>,
-  document.getElementById("app") // id of the div in index.html
+  </Provider>
 );
