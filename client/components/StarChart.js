@@ -28,7 +28,6 @@ const CameraController = () => {
 class StarChart extends React.Component {
   constructor(props) {
     super(props);
-    this.Points = this.Points.bind(this);
   }
 
   async componentDidMount() {
@@ -65,15 +64,23 @@ class StarChart extends React.Component {
           if (r > 0) {
             const pos = new THREE.Vector3().setFromSphericalCoords(
               100,
-              Math.PI / 2 - star.dec,
-              star.ra
+              Math.PI / 2 - star.decrad,
+              star.rarad
             );
-
+            let starColor = "hotpink";
+            if (star.constellationAbr === "Her") {
+              starColor = "blue";
+              console.log(star);
+            }
+            if (star.constellationAbr === "Ori") {
+              starColor = "green";
+              console.log(star);
+            }
             console.log("in map");
             return (
               <mesh position={pos}>
                 <sphereGeometry />
-                <meshStandardMaterial color="hotpink" />
+                <meshStandardMaterial color={starColor} />
               </mesh>
             );
           }
