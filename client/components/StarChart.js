@@ -79,7 +79,7 @@ class StarChart extends React.Component {
             console.log("in map");
             return (
               <mesh position={pos}>
-                <sphereGeometry />
+                <sphereGeometry attach="geometry" args={[r, 9, 9]} />
                 <meshStandardMaterial color={starColor} />
               </mesh>
             );
