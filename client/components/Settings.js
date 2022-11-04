@@ -1,15 +1,37 @@
-import React, { StrictMode, useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { fetchStars, setSingleConstellation } from "../redux/starReducer.js";
 
 class Settings extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      selectedConstellation: "",
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
+  handleChange(e) {
+    this.setState({
+      campusSelected: e.target.value,
+    });
+  }
+
+  async handleSubmit(e) {
+    e.preventDefault();
+    try {
+      const newState = { ...this.props.state, constellation: this.state };
+      await this.props.setConstellation(newState);
+      await this.props.loadStars();
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   render() {
     return (
       <div id="settings">
-        <form>
+        <form onSubmit={(e) => this.handleSubmit(e)}>
           <select
             name="constellation-select"
             id="constellation-select"
@@ -20,6 +42,7 @@ class Settings extends React.Component {
             <option value="Tau">Taurus</option>
             <option value="Lyr">Lyra</option>
           </select>
+          <button type="submit">Set Constellation</button>
         </form>
       </div>
     );
@@ -28,6 +51,7 @@ class Settings extends React.Component {
 
 const mapState = (state) => {
   return {
+    state: state,
     stars: state.stars,
     constellations: state.constellations,
   };
