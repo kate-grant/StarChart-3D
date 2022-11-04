@@ -42,7 +42,8 @@ class StarChart extends React.Component {
   }
 
   render() {
-    const nightsky = new THREE.Color(0x071b2b);
+    const nightsky = new THREE.Color(0x2e3057);
+    const starlight = new THREE.Color(0xe3f8fa);
     console.log("props", this.props);
     const stars = this.props.stars;
     const radius = d3.scaleLinear([6, -1], [0, 2]);
@@ -67,7 +68,7 @@ class StarChart extends React.Component {
               Math.PI / 2 - star.decrad,
               star.rarad
             );
-            let starColor = "hotpink";
+            let starColor = starlight;
             if (star.constellationAbr === "Her") {
               starColor = "blue";
               console.log(star);
@@ -76,10 +77,13 @@ class StarChart extends React.Component {
               starColor = "green";
               console.log(star);
             }
+            if (star.properName === "Sol") {
+              starColor = "yellow";
+            }
             console.log("in map");
             return (
               <mesh position={pos}>
-                <sphereGeometry attach="geometry" args={[r, 9, 9]} />
+                <sphereGeometry attach="geometry" args={[r * 0.2, 9, 9]} />
                 <meshStandardMaterial color={starColor} />
               </mesh>
             );
