@@ -1,8 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap");
+
 body {
   margin: 0;
-  color: black;
+  color: #c6e2ff;
+  font-family: "Roboto Mono", monospace;
 }
 
 #home {
   height: 100vh;
+}
+
+nav {
+  background-color: rgba(255, 255, 255, 0);
+  color: #c6e2ff;
+  position: fixed;
+  z-index: 100;
+  bottom: 0;
+  right: 0;
+}
+
+nav > h1 {
+  font-size: 3rem;
+  letter-spacing: 1px;
+  margin: 1rem;
+  padding: 15px 20px;
+  float: right;
+  animation: neon 1s ease-in-out infinite alternate;
+}
+
+a,
+a:link,
+a:visited a:hover,
+a:active {
+  color: #c6e2ff;
+  text-decoration: none;
+}
+
+span > .material-symbols-outlined {
+  font-size: 30px;
+}
+
+#sidebar {
+  height: 40%;
+  width: 60px;
+  position: fixed;
+  display: flex;
+  top: 30vh;
+  right: 0;
+  color: inherit;
+  background-color: #3e3a3a;
+  padding-top: 50px;
+  z-index: 99;
+  justify-content: center;
+  opacity: 70%;
+}
+#sidebar ul {
+  position: relative;
+  padding: 0;
+  list-style-type: none;
+  align-self: flex-end;
+}
+#sidebar ul > li {
+  margin-top: 20px;
+}
+
+#sidebar > a {
+  text-decoration: none;
+  font-size: 40px;
+  color: inherit;
+  display: block;
+  align-self: center;
+}
+
+#sidebar a:hover {
+  color: #f1f1f1;
+}
+
+#info {
+  width: 60vw;
+  top: 30%;
+}
+
+@keyframes neon {
+  from {
+    text-shadow: 0 0 6px rgba(202, 228, 225, 0.92),
+      0 0 30px rgba(202, 228, 225, 0.34), 0 0 12px rgba(30, 132, 242, 0.52),
+      0 0 21px rgba(30, 132, 242, 0.92), 0 0 34px rgba(30, 132, 242, 0.78),
+      0 0 54px rgba(30, 132, 242, 0.92);
+  }
+  to {
+    text-shadow: 0 0 6px rgba(202, 228, 225, 0.98),
+      0 0 30px rgba(202, 228, 225, 0.42), 0 0 12px rgba(30, 132, 242, 0.58),
+      0 0 22px rgba(30, 132, 242, 0.84), 0 0 38px rgba(30, 132, 242, 0.88),
+      0 0 60px rgba(30, 132, 242, 1);
+  }
 }
