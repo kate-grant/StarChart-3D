@@ -77,8 +77,10 @@ span > .material-symbols-outlined {
 }
 
 #info {
+  position: relative;
   width: 60vw;
-  top: 30%;
+  top: 30vh;
+  left: 20vw;
 }
 
 @keyframes neon {
