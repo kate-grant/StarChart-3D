@@ -9,4 +9,4 @@ future layers may be added to accomodate the full [HYG Database dataset](https:/
 
 ## Video
 
-[Day 3 Video Walkthrough](https://youtu.be/I0hLnBX50ck)
+[Day 3 Video Walkthrough](https://youtu.be/QZwwhwK7vsQ)
