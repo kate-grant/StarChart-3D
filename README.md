@@ -8,3 +8,5 @@ Current star map defaults to the 1000 nearest stars to Earth. In the
 future layers may be added to accomodate the full [HYG Database dataset](https://github.com/astronexus/HYG-Database) used in this project.
 
 ## Video
+
+[Day 3 Video Walkthrough](https://youtu.be/I0hLnBX50ck)
