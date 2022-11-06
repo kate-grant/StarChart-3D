@@ -2,11 +2,13 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./Home.js";
 import Info from "./Info.js";
+import Settings from "./Settings.js";
 
 const AppRoutes = () => {
   return (
     <Router>
       <div>
+        <Settings />
         <div id="sidebar">
           <ul>
             <li>
