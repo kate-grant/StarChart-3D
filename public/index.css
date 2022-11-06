@@ -76,6 +76,38 @@ span > .material-symbols-outlined {
   color: #f1f1f1;
 }
 
+#settings {
+  height: 40%;
+  min-width: fit-content;
+  width: 250px;
+  position: fixed;
+  display: block;
+  top: 30vh;
+  right: 0;
+  color: inherit;
+  background-color: #3e3a3a;
+  padding-top: 50px;
+  z-index: 99;
+  opacity: 70%;
+}
+
+#settings > form {
+  padding-left: 45px;
+  display: block;
+  margin-top: 10px;
+  /* visibility: hidden; */
+}
+
+#settings > h2 {
+  margin-left: 45px;
+  /* visibility: hidden; */
+}
+
+#settings button {
+  display: block;
+  margin-top: 10px;
+}
+
 #info {
   position: relative;
   width: 60vw;
