@@ -7,21 +7,21 @@ class Settings extends React.Component {
     super(props);
     this.state = {
       selectedConstellation: "",
+      open: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
   handleChange(e) {
     this.setState({
-      campusSelected: e.target.value,
+      selectedConstellation: e.target.value,
     });
   }
 
   async handleSubmit(e) {
     e.preventDefault();
     try {
-      const newState = { ...this.props.state, constellation: this.state };
-      await this.props.setConstellation(newState);
+      await this.props.setConstellation(this.state.selectedConstellation);
       await this.props.loadStars();
     } catch (error) {
       console.error(error);
@@ -31,6 +31,7 @@ class Settings extends React.Component {
   render() {
     return (
       <div id="settings">
+        <h2>Settings</h2>
         <form onSubmit={(e) => this.handleSubmit(e)}>
           <select
             name="constellation-select"
