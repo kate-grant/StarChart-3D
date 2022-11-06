@@ -44,6 +44,8 @@ class StarChart extends React.Component {
   render() {
     const nightsky = new THREE.Color(0x2e3057);
     const starlight = new THREE.Color(0xe3f8fa);
+    const icelight = new THREE.Color(0x4df0ff);
+    const brightlight = new THREE.Color(0xffffff);
     console.log("props", this.props);
     const stars = this.props.stars;
     const radius = d3.scaleLinear([6, -1], [0, 2]);
@@ -68,34 +70,45 @@ class StarChart extends React.Component {
               star.rarad
             );
             let starColor = starlight;
-            if (star.constellationAbr === "Her") {
-              starColor = "blue";
-              console.log(star);
-            }
-            if (star.constellationAbr === "Ori") {
-              starColor = "lime";
-              console.log(star);
-            }
+
             if (
               this.props.constellation != "" &&
               star.constellationAbr === this.props.constellation
             ) {
-              console.log("IN IFFFFFFFFFFFFFFFFFFFFFFFFF");
-              console.log("constellation", this.props.constellation);
-              starColor = "lime";
+              return (
+                <>
+                  <mesh position={pos}>
+                    <sphereGeometry attach="geometry" args={[r * 0.2, 9, 9]} />
+                    <meshStandardMaterial
+                      className={star.constellation}
+                      color={brightlight}
+                    />
+                  </mesh>
+                  <mesh position={pos}>
+                    <sphereGeometry attach="geometry" args={[r * 0.8, 9, 9]} />
+                    <meshPhongMaterial
+                      className="glow"
+                      transparent
+                      color={icelight}
+                      opacity={0.5}
+                    />
+                  </mesh>
+                </>
+              );
+            } else {
+              if (star.properName === "Sol") {
+                starColor = "yellow";
+              }
+              return (
+                <mesh position={pos}>
+                  <sphereGeometry attach="geometry" args={[r * 0.2, 9, 9]} />
+                  <meshStandardMaterial
+                    className={star.constellation}
+                    color={starColor}
+                  />
+                </mesh>
+              );
             }
-            if (star.properName === "Sol") {
-              starColor = "yellow";
-            }
-            return (
-              <mesh position={pos}>
-                <sphereGeometry attach="geometry" args={[r * 0.2, 9, 9]} />
-                <meshStandardMaterial
-                  className={star.constellation}
-                  color={starColor}
-                />
-              </mesh>
-            );
           }
         })}
         <pointLight position={[10, 10, 10]} />
