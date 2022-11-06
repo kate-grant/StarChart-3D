@@ -1,7 +1,7 @@
 import React, { StrictMode, useEffect } from "react";
 import { connect } from "react-redux";
 import * as THREE from "three";
-import { Canvas, useThree, useFrame, calculateDpr } from "@react-three/fiber";
+import { Canvas, useThree } from "@react-three/fiber";
 import { fetchStars } from "../redux/starReducer.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import * as d3 from "d3";
@@ -58,7 +58,6 @@ class StarChart extends React.Component {
         }}
       >
         <CameraController />
-
         <color attach="background" args={[nightsky]} />
         {stars.map((star) => {
           const r = Math.round(radius(star.magnitude) * 10) / 10;
@@ -74,17 +73,27 @@ class StarChart extends React.Component {
               console.log(star);
             }
             if (star.constellationAbr === "Ori") {
-              starColor = "green";
+              starColor = "lime";
               console.log(star);
+            }
+            if (
+              this.props.constellation != "" &&
+              star.constellationAbr === this.props.constellation
+            ) {
+              console.log("IN IFFFFFFFFFFFFFFFFFFFFFFFFF");
+              console.log("constellation", this.props.constellation);
+              starColor = "lime";
             }
             if (star.properName === "Sol") {
               starColor = "yellow";
             }
-            console.log("in map");
             return (
               <mesh position={pos}>
                 <sphereGeometry attach="geometry" args={[r * 0.2, 9, 9]} />
-                <meshStandardMaterial color={starColor} />
+                <meshStandardMaterial
+                  className={star.constellation}
+                  color={starColor}
+                />
               </mesh>
             );
           }
@@ -105,6 +114,7 @@ class StarChart extends React.Component {
 const mapState = (state) => {
   return {
     stars: state.stars,
+    constellation: state.constellation,
   };
 };
 
