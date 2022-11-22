@@ -2,6 +2,7 @@ import axios from "axios";
 
 const SET_STARS = "SET_STARS";
 const SET_SINGLE_CONSTELLATION = "SET_SINGLE_CONSTELLATION";
+const SET_COLOR = "SET_COLOR";
 
 export const setStars = (stars) => ({
   type: SET_STARS,
@@ -10,6 +11,10 @@ export const setStars = (stars) => ({
 export const setSingleConstellation = (constellation) => ({
   type: SET_SINGLE_CONSTELLATION,
   constellation,
+});
+export const setColor = (toggled) => ({
+  type: SET_COLOR,
+  toggled,
 });
 
 export const fetchStars = () => {
@@ -23,7 +28,7 @@ export const fetchStars = () => {
   };
 };
 
-const initialState = { stars: [], constellation: "" };
+const initialState = { stars: [], constellation: "", colorIndex: false };
 
 export default function starReducer(state = initialState, action) {
   switch (action.type) {
@@ -31,6 +36,10 @@ export default function starReducer(state = initialState, action) {
       return { ...state, stars: action.stars };
     case SET_SINGLE_CONSTELLATION:
       return { ...state, constellation: action.constellation };
+    case SET_COLOR: {
+      console.log("in reducer");
+      return { ...state, colorIndex: action.toggled };
+    }
     default:
       return state;
   }
