@@ -102,6 +102,10 @@ span > .material-symbols-outlined {
   margin-left: 45px;
   /* visibility: hidden; */
 }
+#settings > h3 {
+  margin-left: 45px;
+  /* visibility: hidden; */
+}
 
 #settings button {
   display: block;
