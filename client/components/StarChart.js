@@ -49,6 +49,9 @@ class StarChart extends React.Component {
     console.log("props", this.props);
     const stars = this.props.stars;
     const radius = d3.scaleLinear([6, -1], [0, 2]);
+    const bVColor = d3
+      .scaleLinear([-0.4, 0.4, 2])
+      .range(["#ff8f85", "#FFFFFF", "#2f7afa"]);
     return (
       <Canvas
         camera={{
@@ -70,6 +73,12 @@ class StarChart extends React.Component {
               star.rarad
             );
             let starColor = starlight;
+            console.log("before color");
+            if (star.colorIndex && this.props.colorIndex === true) {
+              console.log("in color");
+              starColor = bVColor(star.colorIndex);
+              console.log(starColor);
+            }
 
             if (
               this.props.constellation != "" &&
@@ -128,6 +137,7 @@ const mapState = (state) => {
   return {
     stars: state.stars,
     constellation: state.constellation,
+    colorIndex: state.colorIndex,
   };
 };
 
