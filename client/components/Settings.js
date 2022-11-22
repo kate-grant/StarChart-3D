@@ -66,13 +66,13 @@ class Settings extends React.Component {
         </form>
         <h3>Colorize</h3>
 
-        <div>
+        <div id="color-opt-1">
           <input
             id="bV"
             type="checkbox"
             onChange={(e) => this.handleSubmitColor(e)}
           />
-          <label for="bV">B-V Value</label>
+          <label for="bV">B-V Index</label>
         </div>
       </div>
     );

@@ -112,6 +112,10 @@ span > .material-symbols-outlined {
   margin-top: 10px;
 }
 
+#color-opt-1 {
+  padding-left: 45px;
+}
+
 #info {
   position: relative;
   width: 60vw;
